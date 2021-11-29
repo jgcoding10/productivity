@@ -1,2 +1,2 @@
 # productivity
-Final Project with Claire Yoo and Alex Pipkin
+Final Project with Clairandra Yoo and Alexandra Pipkin
