@@ -252,7 +252,6 @@ def register():
     else:
         return render_template("register.html")
 
-
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
@@ -316,6 +315,8 @@ def errorhandler(e):
     if not isinstance(e, HTTPException):
         e = InternalServerError()
     return apology(e.name, e.code)
+
+    
 
 
 # Listen for errors
