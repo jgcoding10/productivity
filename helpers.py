@@ -1,5 +1,7 @@
 import os
 
+# We might not need some of this, especially the flask stuff
+
 from cs50 import SQL
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
 from flask_session import Session
