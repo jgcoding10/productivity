@@ -5,36 +5,14 @@
 {% endblock %}
 
 {% block main %}
-    <table class="table tablestriped">
-        <thead>
-            <tr>
-                <th class="text-start">Symbol</th>
-                <th class="text-start">Name</th>
-                <th class="text-end">Shares</th>
-                <th class="text-end">Price</th>
-                <th class="text-end">TOTAL</th>
-            </tr>
-        </thead>
-       <tbody>
-            {% for stock in stocks %}
-                <tr>
-                    <td class="text-start">{{ stock.symbol }}</td>
-                    <td class="text-start">{{ stock.name }}</td>
-                    <td class="text-end">{{ stock.shares }}</td>
-                    <td class="text-end">{{ stock.price | usd }}</td>
-                    <td class="text-end">{{ (stock.shares * stock.price) | usd }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-        <tfoot>
-            <tr>
-                <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
-                <td class="border-0 text-end">{{ cash | usd }}</td>
-            </tr>
-            <tr>
-                <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
-                <td class="border-0 w-bold text-end">{{ total | usd }}</td>
-            </tr>
-        </tfoot>
-    </table>
+<div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://media.giphy.com/media/SVeX8UVj11rveaYjzf/giphy.gif" alt="" width="72" height="57">
+    <h1 class="display-5 fw-bold">Want to Productively Procrastinate?</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Have a million things to do and no motivation? Really, really hate your homework but want to at least get something done? Looking for a way to pass the time? This quiz is for you. Click the button and andswer a series of questions to figure out the best way to productively procrastinate!</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Take Quiz!</button>
+      </div>
+    </div>
+  </div>
 {% endblock %}
