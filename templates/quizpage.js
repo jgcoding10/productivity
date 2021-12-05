@@ -199,7 +199,28 @@ var prompt_values = [
         $('.results').removeClass('hide');
         $('.results').addClass('show');
         
-        if(total < 0) {
+        // The scores for the test are stored in a four-digit counter. The code below separates the digits so they can be compared to see which has the highest score
+        s = (total - (total % 1000)) / 1000
+        p = (total - (total % 100)) / 100
+        m = (total - (total % 10)) / 10
+        c = total % 10
+        // We set movement as the baseline/tiebreaker. This is because we feel movement is the best way to take a break.
+        highest = m
+        slot = 3
+
+        // Which one of the four scores is the highest. This will find that number and remember which digit it was
+        if(s > highest) {
+            slot = 1
+        }
+        if(p > highest) {
+            slot = 2
+        }
+        if(c > highest) {
+            slot = 4
+        }
+
+        // 
+        if(slot = 4) {
             // document.getElementById('intro-bar').style.width = ((total / 60) * 100) + '%';
             // console.log(document.getElementById('intro-bar').style.width);
             // document.getElementById('intro-bar').innerHTML= ((total / 60) * 100) + '%';
@@ -210,11 +231,25 @@ var prompt_values = [
     <br><br>\
     1. Think of two animals, and draw the cutest possible combination of the two.\n\n\
     <br><br>\
-    2. Get a short story writing prompt from: https://www.squibler.io/plot-generator\n\n\
+    2. Create a collage with five photos. Each photo should feature something that starts with each vowel.\n\n\
     <br><br>\
-    3. Create a collage with five photos. Each photo should feature something that starts with each vowel.\n\n\
-            ';
-        } else if(total > 0) {
+    3. Get a short story writing prompt from:\n\n\
+            '    // Create anchor element.
+            var a = document.createElement('a'); 
+              
+            // Create the text node for anchor element.
+            var link = document.createTextNode("Short Story Prompt Generator");
+              
+            // Append the text node to anchor element.
+            a.appendChild(link);  
+              
+            // Set the href property.
+            a.href = "https://www.squibler.io/plot-generator"; 
+              
+            // Append the anchor element to the body.
+            document.body.prepend(a); 
+       
+        } else if(slot = 2) {
             document.getElementById('results').innerHTML = '<b>We should switch gears.</b><br><br>\
            We get the sense that you still want to work, you just do not want to work on this anymore.\
     <br><br>\
@@ -225,7 +260,7 @@ var prompt_values = [
     2. Knock out a smaller task. It will be one less thing weighing on your mind!\n\n\
     <br><br>\
     3. Pick something you have always wanted to try. What would you need to do first?';
-        } else if(total > 0) {
+        } else if(slot = 1) {
             document.getElementById('results').innerHTML = '<b>Treat yo self!</b><br><br>\
            Right now, your top priority should be you. Work is important, but you cannot succeed unless you take care of yourself.\
     <br><br>\
