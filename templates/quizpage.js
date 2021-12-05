@@ -203,29 +203,51 @@ var prompt_values = [
             // document.getElementById('intro-bar').style.width = ((total / 60) * 100) + '%';
             // console.log(document.getElementById('intro-bar').style.width);
             // document.getElementById('intro-bar').innerHTML= ((total / 60) * 100) + '%';
-            document.getElementById('results').innerHTML = '<b>You are introverted!</b><br><br>\
-            Introverts are tricky to understand, since it’s so easy for us to assume that introversion is the same as being shy, when, in fact, introverts are simply people who find it tiring to be around other people.\n\
+            document.getElementById('results').innerHTML = '<b>Time for a little creativity...</b><br><br>\
+            You have been doing the same monotonous task for too long. Studies show that a quick creativity break can rejuvenate the brain.\n\
     <br><br>\
-    I love this explanation of an introvert’s need to be alone:\n\
+    Consider one of the following:\n\
     <br><br>\
-    For introverts, to be alone with our thoughts is as restorative as sleeping, as nourishing as eating.\n\n\
+    1. Think of two animals, and draw the cutest possible combination of the two.\n\n\
     <br><br>\
-    Introverted people are known for thinking things through before they speak, enjoying small, close groups of friends and one-on-one time, needing time alone to recharge, and being upset by unexpected changes or last-minute surprises. Introverts are not necessarily shy and may not even avoid social situations, but they will definitely need some time alone or just with close friends or family after spending time in a big crowd.\
+    2. Get a short story writing prompt from: https://www.squibler.io/plot-generator\n\n\
+    <br><br>\
+    3. Create a collage with five photos. Each photo should feature something that starts with each vowel.\n\n\
             ';
         } else if(total > 0) {
-            document.getElementById('results').innerHTML = '<b>You are extroverted!</b><br><br>\
-            On the opposite side of the coin, people who are extroverted are energized by people. They usually enjoy spending time with others, as this is how they recharge from time spent alone focusing or working hard.\
+            document.getElementById('results').innerHTML = '<b>We should switch gears.</b><br><br>\
+           We get the sense that you still want to work, you just do not want to work on this anymore.\
     <br><br>\
-    I like how this extrovert explains the way he/she gains energy from being around other people:\
+    Maybe you just need the motivational boost of getting something done:\
     <br><br>\
-    When I am among people, I make eye contact, smile, maybe chat if there’s an opportunity (like being stuck in a long grocery store line). As an extrovert, that’s a small ‘ping’ of energy, a little positive moment in the day.';
-        } else {
-            document.getElementById('results').innerHTML = '<b>You are ambiverted!</b><br><br>\
-            Since introverts and extroverts are the extremes of the scale, the rest of us fall somewhere in the middle. Many of us lean one way or the other, but there are some who are quite balanced between the two tendencies. These people are called ambiverts.\
+    1. Clean a corner of the room. You will feel a lot better with a little less clutter, and then you will be ready to start working again\n\n\
     <br><br>\
-    So let’s look at how an ambivert compares.\
+    2. Knock out a smaller task. It will be one less thing weighing on your mind!\n\n\
     <br><br>\
-    Ambiverts exhibit both extroverted and introverted tendencies. This means that they generally enjoy being around people, but after a long time this will start to drain them. Similarly, they enjoy solitude and quiet, but not for too long. Ambiverts recharge their energy levels with a mixture of social interaction and alone time.'
+    3. Pick something you have always wanted to try. What would you need to do first?';
+        } else if(total > 0) {
+            document.getElementById('results').innerHTML = '<b>Treat yo self!</b><br><br>\
+           Right now, your top priority should be you. Work is important, but you cannot succeed unless you take care of yourself.\
+    <br><br>\
+    Take a break to do the important things:\
+    <br><br>\
+    1. Go to sleep. If it is well into the AM, you should go to bed. Few things are worth messing up your sleep routine.\n\n\
+    <br><br>\
+    2. Eat. If it has been a while since you last ate, put some fuel in your body. You will feel a lot better when you start again.\n\n\
+    <br><br>\
+    3. Take a shower. You will feel productive and clean. It is a win-win.';
+        }else {
+            document.getElementById('results').innerHTML = '<b>Time to move!</b><br><br>\
+            You have been sitting down for too long. Getting the blood flowing and relieving energy is key to your success.\
+    <br><br>\
+    Depending on how much time you have, here are some good options:\
+    <br><br>\
+    <br><br>\
+    1. Go for a run. Whether it is 2 miles or ten, a run can get out those jitters and make you feel great.\n\n\
+    <br><br>\
+    2. Take a quick dance break by following this link: https://www.youtube.com/watch?v=5UMCrq-bBCg&list=RDCMUCANLZYMidaCbLQFWXBC95Jg&start_radio=1\n\n\
+    <br><br>\
+    3. Take a shower. You will feel productive and clean. It is a win-win.';
         }
     
         // Hide the quiz after they submit their results
