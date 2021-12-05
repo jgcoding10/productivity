@@ -5,6 +5,7 @@ import urllib.parse
 from flask import redirect, render_template, request, session
 from functools import wraps
 
+# This gives an apology error message
 
 def apology(message, code=400):
     """Render message as an apology to user."""
