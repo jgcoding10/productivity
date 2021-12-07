@@ -24,5 +24,7 @@ the digits has the greatest value. It does this by, say we are in the thousands 
 then change to display a results page depending on which one you got. This will have an explanation of the result you received, as well as a few ideas of how you can best procrastinate. 
     We also included a button on the quiz page that says "Click to suffer!" which 
 can take you to a page where you can do something else with your time. 
-
-// also insert to do list design info
+    The last mechanism we added is a todo list. When you get the productivity 
+result, it will provide a link to your todo list. On this page, you can type in the entry field a task you need to do. If there is nothing entered, the field will just display the prompt. If you try to submit without putting anything in, it will give you an error message. 
+    Once you enter a valid task, it will put it into the list below. This new 
+item will always appear at the top of the list. If you click off the task, the event listener will recognize this and create a strikethrough on the task so that you get the satisfaction of knowing you're done. If you click on the little trash can all the way to the right, it will take the task out of the array so that you cannot see it at all anymore. 
