@@ -8,12 +8,7 @@ Structure: The website consists of five main sections.
         1. The Home Page
             a. The initial page, our index.html. This is just the starting point for users, which will direct them to either log in or register.
         2. Log-in/Register
-            a. To allow for more advanced capabilities, we have all of our users register with us and login for each use. This allows us to save 
-            
-            // Did we end up doing this?
-
-            the users past results, so that they can see past trends. For instance, say they often get the "creativity" result, this might 
-            encourage them to plan some art study breaks ahead of time, or invest in some art materials for themselves. We use a hash to ensure
+            a. To allow for more advanced capabilities, we have all of our users register with us and login for each use. We use a hash to ensure
             password privacy as well as some stop measures to prevent invalid usernames + passwords and making sure there are no doubled usernames.
         3. Quiz Page
             a. This is the main part of the page. The quiz is comprised of 8 questions, all of them on the scale from "Strongly Disagree" to 
@@ -36,4 +31,4 @@ Structure: The website consists of five main sections.
             This allows them to feel more in control of what task they have and try to see if there are any small tasks that will feel good to get off
             of their plate. 
 
-            // Might be more specifics here how to use the to do list
+            
