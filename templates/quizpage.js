@@ -72,7 +72,9 @@ var prompt_values = [
     
     // For each prompt, create a list item to be inserted in the list group
     function createPromptItems() {
-    
+        
+
+        
         for (var i = 0; i < prompts.length; i++) {
             var prompt_li = document.createElement('li');
             var prompt_p = document.createElement('p');
@@ -102,6 +104,7 @@ var prompt_values = [
     // 	}
     // }
     function createValueButtons() {
+      
         for (var li_index = 0; li_index < prompts.length; li_index++) {
             var group = document.createElement('div');
             group.className = 'btn-group btn-group-justified';
@@ -121,6 +124,7 @@ var prompt_values = [
                 document.getElementsByClassName('prompt')[li_index].appendChild(group);
             }
         }
+
     }
     
     createPromptItems();
@@ -196,27 +200,29 @@ var prompt_values = [
         
         // The scores for the test are stored in a four-digit counter. The code below separates the digits so they can be compared to see which has the highest score
         s = (total - (total % 1000)) / 1000
-        p = (total - (total % 100)) / 100
-        m = (total - (total % 10)) / 10
+        p = ((total % 1000) - (total % 100)) / 100
+        m = ((total % 100) - (total % 10)) / 10
         c = total % 10
         // We set movement as the baseline/tiebreaker. This is because we feel movement is the best way to take a break.
-        highest = m
+        highest = 0
         slot = 3
 
         // Which one of the four scores is the highest. This will find that number and remember which digit it was
         if(s > highest) {
             slot = 1
         }
-        if(c > highest) {
-            slot = 4
+        if(m > highest) {
+            slot = 3
         }
         if(p > highest) {
             slot = 2
         }
-        
+        if(c > highest) {
+            slot = 4
+        }
 
-        // 
-        if(slot = 4) {
+        
+        if(slot == 4) {
             // document.getElementById('intro-bar').style.width = ((total / 60) * 100) + '%';
             // console.log(document.getElementById('intro-bar').style.width);
             // document.getElementById('intro-bar').innerHTML= ((total / 60) * 100) + '%';
@@ -225,11 +231,11 @@ var prompt_values = [
     <br><br>\
     Consider one of the following:\n\
     <br><br>\
-    1. Think of two animals, and draw the cutest possible combination of the two.\n\n\
+    <li> Think of two animals, and draw the cutest possible combination of the two.\n\n\ </li>\
     <br><br>\
-    2. Create a collage with five photos. Each photo should feature something that starts with each vowel.\n\n\
+    <li>Create a collage with five photos. Each photo should feature something that starts with each vowel.\n\n\</>\
     <br><br>\
-    3. Get a short story writing prompt from:\n\n\
+    <li id="shortStoryLink">Get a short story writing prompt from:\n\n\ </li>\
             '    // Create anchor element.
             var a = document.createElement('a'); 
               
@@ -243,9 +249,9 @@ var prompt_values = [
             a.href = "https://www.squibler.io/plot-generator"; 
               
             // Append the anchor element to the body.
-            document.body.prepend(a); 
+            document.getElementById('shortStoryLink').append(a); 
        
-        } else if(slot = 2) {
+        } else if(slot == 1) {
             document.getElementById('results').innerHTML = '<b>We should switch gears.</b><br><br>\
            We get the sense that you still want to work, you just do not want to work on this anymore.\
     <br><br>\
@@ -256,7 +262,7 @@ var prompt_values = [
     2. Knock out a smaller task. It will be one less thing weighing on your mind!\n\n\
     <br><br>\
     3. Pick something you have always wanted to try. What would you need to do first?';
-        } else if(slot = 1) {
+        } else if(slot == 3) {
             document.getElementById('results').innerHTML = '<b>Treat yo self!</b><br><br>\
            Right now, your top priority should be you. Work is important, but you cannot succeed unless you take care of yourself.\
     <br><br>\
@@ -267,18 +273,32 @@ var prompt_values = [
     2. Eat. If it has been a while since you last ate, put some fuel in your body. You will feel a lot better when you start again.\n\n\
     <br><br>\
     3. Take a shower. You will feel productive and clean. It is a win-win.';
-        }else {
+        } else if(slot == 2) {
             document.getElementById('results').innerHTML = '<b>Time to move!</b><br><br>\
             You have been sitting down for too long. Getting the blood flowing and relieving energy is key to your success.\
     <br><br>\
     Depending on how much time you have, here are some good options:\
     <br><br>\
     <br><br>\
-    1. Go for a run. Whether it is 2 miles or ten, a run can get out those jitters and make you feel great.\n\n\
+    <li> Go for a run. Whether it is 2 miles or ten, a run can get out those jitters and make you feel great.\n\n\ </li>\
     <br><br>\
-    2. Take a quick dance break by following this link: https://www.youtube.com/watch?v=5UMCrq-bBCg&list=RDCMUCANLZYMidaCbLQFWXBC95Jg&start_radio=1\n\n\
+    <li id="danceBreakLink"> Take a quick dance break by following this link: \n\n\ </li>\
     <br><br>\
-    3. Take a shower. You will feel productive and clean. It is a win-win.';
+    <li> Take a shower. You will feel productive and clean. It is a win-win. </li> \ '
+        // Create anchor element.
+        var a = document.createElement('a'); 
+              
+        // Create the text node for anchor element.
+        var link = document.createTextNode("Dance Break");
+          
+        // Append the text node to anchor element.
+        a.appendChild(link);  
+          
+        // Set the href property.
+        a.href = "https://www.youtube.com/watch?v=5UMCrq-bBCg&list=RDCMUCANLZYMidaCbLQFWXBC95Jg&start_radio=1"; 
+          
+        // Append the anchor element to the body.
+        document.getElementById('danceBreakLink').append(a); 
         }
     
         // Hide the quiz after they submit their results
