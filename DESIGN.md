@@ -5,7 +5,7 @@ Title: Productive Procrastination
 Premise: When your work is dragging, come fill out our simple quiz to decide which method of procrastination you would most benefit from.
 
 DESIGN:
-    Our code utilizes HTML, CSS, JavaScript, and Flask to create an interactive website with the ability to store past user data. We store
+    Our code utilizes HTML, CSS, JavaScript, and Flask to create an interactive website with the ability to store past user data. Our time management favicon really sets us apart in our wedbsite appeal. Beyond that, we store
 the user data in an SQL database titled 'productivity' with the table name 'users' and columns named: 'id,' 'username,' and 'hash.' Using 
 hash helps us protects the user's private data, in this case, the password.
     The register page can add to this databased using the register.html page and the function 'register' defined in app.py. Register runs
