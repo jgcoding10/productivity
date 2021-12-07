@@ -1,85 +1,184 @@
-//Framework for listener events in creating 
+const todoList = [];
 
-const todoObjectList = [];
-class Todo_Class {
-    constructor(item){
-        this.ulElement =item;
+const todoListElement = document.querySelector("#myUL");
+
+document.querySelector("#add_button").addEventListener("click", addTodo);
+document.querySelector("#myInput").addEventListener("keydown", function(e) {
+  if (e.keyCode == 13) {
+    addTodo()
+  }
+});
+
+//-------GETTING VALUES FROM INPUT TO ARRAY OF OBJECTS-------
+function addTodo() {
+  const todoText = document.querySelector("#myInput").value;
+
+  if (todoText == "") {
+    alert("You did not enter any item");
+  } else {
+    const todoObject = {
+      id: todoList.length,
+      todoText: todoText,
+      isDone: false,
+    };
+
+    //---WITH UNSHIFT WE ADD THE NEW ELEMENT TO THE BEGINNING OF THE ARRAY
+    //--SO THAT THE NEW ITEMS SHOW UP ON TOP
+    todoList.unshift(todoObject);
+    displayTodos();
+  }
+}
+
+//------CHANGING THE isDone VALUE TO TRUE WHEN THE ELEMENT IS CLICKED
+//------OR TO FALSE IF IT WAS TRUE BEFORE
+function doneTodo(todoId) {
+  const selectedTodoIndex = todoList.findIndex((item) => item.id == todoId);
+
+  todoList[selectedTodoIndex].isDone
+    ? (todoList[selectedTodoIndex].isDone = false)
+    : (todoList[selectedTodoIndex].isDone = true);
+  displayTodos();
+}
+
+//----TO DELETE AN ITEM; FROM THE LIST
+function deleteItem(x) {
+  todoList.splice(
+    todoList.findIndex((item) => item.id == x),
+    1
+  );
+  displayTodos();
+}
+
+//---------DISPLAYING THE ENTERED ITEMS ON THE SCREEN------
+function displayTodos() {
+  todoListElement.innerHTML = "";
+  document.querySelector("#myInput").value = "";
+
+  todoList.forEach((item) => {
+    const listElement = document.createElement("li");
+    const delBtn = document.createElement("i");
+
+    listElement.innerHTML = item.todoText;
+    listElement.setAttribute("data-id", item.id);
+
+    delBtn.setAttribute("data-id", item.id);
+    delBtn.classList.add("far");
+    delBtn.classList.add("fa-trash-alt");
+    delBtn.setAttribute("data-id", item.id);
+
+    if (item.isDone) {
+      listElement.classList.add("checked");
     }
 
-    add() {
-        const todoInput = document.querySelector("#myInput").ariaValueMax;
-        if (todoInput == "") {
-            alert("Ya know, you actually have to put something here for this to work, right?")
-        } else {
-            const todoObject = {
-                id : todoObjectList.length,
-                todoText : todoInput,
-                isDone : false,
-            }
-        
-        todoObjectList.unshift(todoObject);
-        this.display();
-        document.querySelector("#myInput").value = '';
-        }
-    }
+    listElement.addEventListener("click", function (e) {
+      const selectedId = e.target.getAttribute("data-id");
+      doneTodo(selectedId);
+    });
 
-    done_undone(x) {
-        const selectedTodoIndex = todoObjectList.findIndex(item)=> item.id == x);
-        console.log(todoObjectList[selectedTodoIndex].isDone);
-        todoObjectList[selectedTodoIndex].isDone == false ? todoObjectList[selectedTodoIndex].isDone = true : todoObjectList[selectedTodoIndex].isDone = false;
-        this.display();
-    }
+    delBtn.addEventListener("click", function (e) {
+      const delId = e.target.getAttribute("data-id");
+      deleteItem(delId);
+    });
 
-    deleteElements(z) {
-        const selectedDelIndex = todoObjectList.findIndex((item)=> item.id == z);
-
-        todoObjectList.splice(selectedDelIndex,1);
-
-        this.display();
-    }
-
-    display() {
-        this.ulElement.innerHTML = '';
-
-        todoObjectList.forEach((object_item) => {
-
-            const liElement = document.createElement("li");
-            const delBtn = document.createElement("i");
-
-            liElement.innerText = onject_item.todoText;
-            liElement.setAttribute("data-id", object_item.id);
-
-            delBtn.setAttribute("data-id", object_item.id);
-            delBtn.classList.add("far", "fa-trash-alt");
-
-            liElement.appendChild(delBtn);
-
-            delBtn.addEventListener("click", function(e) {
-                const deleteId = e.target.getAttrbute("data-id");
-                myTodoList.deleteElement(deleteId);
-            })
-            
-            liElement.addEventListener("click", function(e) {
-                const selectedId = e.target.getAttrbute("data-id");
-                myTodoList.done_undone(selectedId);
-            })
-
-            if (object_iten.isDone) {
-                liElement.classList.add("checked");
-            }
-
-            this.ulElement.appendChild(liElement);
-        })
-    }
+    todoListElement.appendChild(listElement);
+    listElement.appendChild(delBtn);
+  });
 }
 
 
 
 
-const listSelection = document.querySelector("#myUL");
 
-myTodoList = new Todo_Class(listSelection);
 
-document.querySelector(".addBtn").addEventListener("click", function() {
-    myTodoList.add()
-})
+
+
+
+
+
+// const todoList = [];
+
+// const todoListElement = document.querySelector("#myUL");
+
+// document.querySelector("#add_button").addEventListener("click", addTodo);
+// document.querySelector("#myInput").addEventListener("keydown", function(e) {
+//   if (e.keyCode == 13) {
+//     addTodo()
+//   }
+// });
+
+// //-------GETTING VALUES FROM INPUT TO ARRAY OF OBJECTS-------
+// function addTodo() {
+//     console.log('here');
+//   const todoText = document.querySelector("#myInput").value;
+
+//   if (todoText == "") {
+//     alert("You did not enter any item");
+//   } else {
+//     const todoObject = {
+//       id: todoList.length,
+//       todoText: todoText,
+//       isDone: false,
+//     };
+
+//     //---WITH UNSHIFT WE ADD THE NEW ELEMENT TO THE BEGINNING OF THE ARRAY
+//     //--SO THAT THE NEW ITEMS SHOW UP ON TOP
+//     todoList.unshift(todoObject);
+//     displayTodos();
+//   }
+// }
+
+// //------CHANGING THE isDone VALUE TO TRUE WHEN THE ELEMENT IS CLICKED
+// //------OR TO FALSE IF IT WAS TRUE BEFORE
+// function doneTodo(todoId) {
+//   const selectedTodoIndex = todoList.findIndex((item) => item.id == todoId);
+
+//   todoList[selectedTodoIndex].isDone
+//     ? (todoList[selectedTodoIndex].isDone = false)
+//     : (todoList[selectedTodoIndex].isDone = true);
+//   displayTodos();
+// }
+
+// //----TO DELETE AN ITEM; FROM THE LIST
+// function deleteItem(x) {
+//   todoList.splice(
+//     todoList.findIndex((item) => item.id == x),
+//     1
+//   );
+//   displayTodos();
+// }
+
+// //---------DISPLAYING THE ENTERED ITEMS ON THE SCREEN------
+// function displayTodos() {
+//   todoListElement.innerHTML = "";
+//   document.querySelector("#myInput").value = "";
+
+//   todoList.forEach((item) => {
+//     const listElement = document.createElement("li");
+//     const delBtn = document.createElement("i");
+
+//     listElement.innerHTML = item.todoText;
+//     listElement.setAttribute("data-id", item.id);
+
+//     delBtn.setAttribute("data-id", item.id);
+//     delBtn.classList.add("far");
+//     delBtn.classList.add("fa-trash-alt");
+//     delBtn.setAttribute("data-id", item.id);
+
+//     if (item.isDone) {
+//       listElement.classList.add("checked");
+//     }
+
+//     listElement.addEventListener("click", function (e) {
+//       const selectedId = e.target.getAttribute("data-id");
+//       doneTodo(selectedId);
+//     });
+
+//     delBtn.addEventListener("click", function (e) {
+//       const delId = e.target.getAttribute("data-id");
+//       deleteItem(delId);
+//     });
+
+//     todoListElement.appendChild(listElement);
+//     listElement.appendChild(delBtn);
+//   });
+// }
