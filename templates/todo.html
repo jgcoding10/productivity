@@ -6,7 +6,35 @@
 
 {% block main %}
 
-<div class="list-group">
+<!--Inspiration from https://medium.com/clarusway/making-a-todo-list-with-html-css-and-javascript-154839b770b6 and bootstrap-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, inital-scale=1" />
+  <link rel="stylesheet" href="todo.css" />
+  <script src="http://kit.fontawesome.com/29ee0bc57e.js" crossorigin="anonymous">
+  </script>
+  <title>To Do List</title>
+</head>
+<body>
+  <header>
+    <h1>To Do List :)</h1>
+    <input type="text" id="myInput" placeholder="Sh*t To Do" />
+    <span class="addBtn" id="add_button">Add</span>
+  </header>
+  <ul id="myUL"></ul>
+
+  <scrpt src="todo.js"></scrpt>
+</body>
+
+
+
+
+
+
+<!--OG idea but found a prettier one online-->
+<!-- <div class="list-group">
+  <title>To Do List</title>
     <label class="list-group-item d-flex gap-3">
       <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="" style="font-size: 1.375em;">
       <span class="pt-1 form-checked-content">
@@ -47,6 +75,6 @@
         </small>
       </span>
     </label>
-  </div>
+  </div> -->
 
   {% endblock %}
