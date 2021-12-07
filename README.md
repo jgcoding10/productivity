@@ -30,5 +30,8 @@ Structure: The website consists of five main sections.
             work in our to-do list, which can be accessed at any point. It will also be connected to the results page if the user gets productivity. 
             This allows them to feel more in control of what task they have and try to see if there are any small tasks that will feel good to get off
             of their plate. 
+                The to do list allows you to add custom events, check off those
+            events, and delete them. This creates a useful and visually-appealing method of organizing your tasks for the day. When you get the 'productivity' result, the page will link you to the todo list page, so you can look at your other tasks for the day. Maybe you're not in the mood to write your paper, but you have time to finish a few math questions. This allows you to feel productive, get things done, while still procrastinating!
+            
 
             
