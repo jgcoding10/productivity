@@ -26,11 +26,6 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///productivity.db")
 
-# Make sure API key is set
-if not os.environ.get("API_KEY"):
-    raise RuntimeError("API_KEY not set")
-
-
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
@@ -73,6 +68,10 @@ def history():
     #     "SELECT * FROM transactions WHERE user_id = :user_id", user_id=session["user_id"])
     return render_template("history.html", transactions=transactions)
 
+@app.route("/todo")
+@login_required
+def todo():
+    return render_template("todo.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
