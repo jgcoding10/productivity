@@ -1,29 +1,24 @@
-// A personality quiz
-
-// This is an array of objects that stores the personality trait that is prompted to the user and the weight for each prompt. 
-// If a personality trait is considered more introverted, it will have a negative weight.
-// If a personlity trait is considered more extroverted, it will have a positive weight.
 
 var prompts = [
     {
         prompt: 'It is very late.',
         weight: 1000,
-        class: 'group0'
+        class: 'group1'
     },
     {
         prompt: 'I have a lot of other things that I want to get do.',
         weight: 100,
-        class: 'group1'
+        class: 'group2'
     },
     {
         prompt: 'It has been a long time since I last moved around.',
         weight: 10,
-        class: 'group2'
+        class: 'group3'
     },
     {
         prompt: 'It has been a long time since I did art for myself.',
         weight: 1,
-        class: 'group3'
+        class: 'group4'
     },
     {
         prompt: 'I feel like I have been doing the same thing for too long.',
@@ -33,17 +28,17 @@ var prompts = [
     {
         prompt: 'I am feeling very jittery and/or antsy.',
         weight: 10,
-        class: 'group5'
+        class: 'group3'
     },
     {
         prompt: 'I am so in the zone right now.',
         weight: 100,
-        class: 'group6'
+        class: 'group2'
     },
     {
         prompt: 'I have not eaten in a long time.',
         weight: 1000,
-        class: 'group7'
+        class: 'group1'
     }
 ]
 
@@ -149,12 +144,12 @@ var prompt_values = [
     }
     
     // Get the weight associated to the value
-    function findValueWeight(values, value) {
+    function findValueWeight(question, value) {
         var weight = 0;
     
-        for (var i = 0; i < values.length; i++) {
-            if (values[i].value === value) {
-                weight = values[i].weight;
+        for (var i = 0; i < question.length; i++) {
+            if (question[i].value === value) {
+                weight = question[i].weight;
             }
         }
     
@@ -212,12 +207,13 @@ var prompt_values = [
         if(s > highest) {
             slot = 1
         }
-        if(p > highest) {
-            slot = 2
-        }
         if(c > highest) {
             slot = 4
         }
+        if(p > highest) {
+            slot = 2
+        }
+        
 
         // 
         if(slot = 4) {
