@@ -1,41 +1,121 @@
-{% extends "layout.html" %}
-
-{% block title %}
-    To Do List
-{% endblock %}
-
-{% block main %}
-
-<!--Inspiration from https://medium.com/clarusway/making-a-todo-list-with-html-css-and-javascript-154839b770b6 and bootstrap-->
-
+<!-- Majority from https://medium.com/clarusway/making-a-todo-list-with-html-css-and-javascript-154839b770b6 and bootstrap
+      This was the first try- does not work too well and required some poking around and modifications below
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <meta name="viewport" content="width=device-width, inital-scale=1" />
   <link rel="stylesheet" href="todo.css" />
   <script src="http://kit.fontawesome.com/29ee0bc57e.js" crossorigin="anonymous">
   </script>
+  <scrpt src="todo.js"></scrpt>
   <title>To Do List</title>
 </head>
 <body>
   <header>
     <h1>To Do List :)</h1>
     <input type="text" id="myInput" placeholder="Sh*t To Do" />
-    <span class="addBtn" id="add_button">Add</span>
+    <span class="addBtn" id=".addBtn">Add</span>
   </header>
   <ul id="myUL"></ul>
 
-  <scrpt src="todo.js"></scrpt>
 </body>
+    Navbar / for each result page-->
+    <!-- <nav class="navbar navbar-light" style="background-color: #FFB6C1;">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">The Productive Procrastination Program</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="quizpage.html">Quiz</a>
+              </li>
+              <-- <li class="nav-item">
+                <a class="nav-link" href="#">Past Results</a>
+              </li> -->
+              <!-- <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="todo.html">To Do</a>
+                </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  About the Original Procrastinators
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="Alex.html">Alex</a></li>
+                  <li><a class="dropdown-item" href="Jack.html">Jack</a></li>
+                  <li><a class="dropdown-item" href="Claire.html">Claire</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+      </div>
+  </nav>  -->
+
+
+  <!DOCTYPE html>
+<html>
+
+  <nav class="navbar navbar-light" style="background-color: #FFB6C1;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">The Productive Procrastination Program</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="quizpage.html">Quiz</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Past Results</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="todo.html">To Do</a>
+              </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                About the Original Procrastinators
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="Alex.html">Alex</a></li>
+                <li><a class="dropdown-item" href="Jack.html">Jack</a></li>
+                <li><a class="dropdown-item" href="Claire.html">Claire</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </div>
+</nav>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="todo.css" />
+    <script src="https://kit.fontawesome.com/29ee0bc57e.js" crossorigin="anonymous">
+    </script>
+    <title>ToDo List</title>
+  </head>
+  <body>
+    <header>
+      <h1>To Do List</h1>
+      <input type="text" id="myInput" placeholder="Sh*t to do" />
+      <span class="addBtn" id="add_button">Add</span>
+    </header>
+    <ul id="myUL">
+      
+    </ul>
+    <!-- The link below is for the js file without using class  -->
+    <!-- <script src="script.js"></script> -->
+    <script src="todo.js"></script>
+  </body>
+</html>
 
 
 
 
-
-
-<!--OG idea but found a prettier one online-->
+<!-- OG idea but found a prettier one online -->
 <!-- <div class="list-group">
-  <title>To Do List</title>
-    <label class="list-group-item d-flex gap-3">
+  <title>To Do List</title> -->
+    <!-- <label class="list-group-item d-flex gap-3">
       <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="" style="font-size: 1.375em;">
       <span class="pt-1 form-checked-content">
         <strong>Finish sales report</strong>
@@ -75,6 +155,5 @@
         </small>
       </span>
     </label>
-  </div> -->
+  </div> --> 
 
-  {% endblock %}
