@@ -257,12 +257,26 @@ var prompt_values = [
     <br><br>\
     Maybe you just need the motivational boost of getting something done:\
     <br><br>\
-    1. Clean a corner of the room. You will feel a lot better with a little less clutter, and then you will be ready to start working again\n\n\
+    <li> 1. Clean a corner of the room. You will feel a lot better with a little less clutter, and then you will be ready to start working again\n\n\ </li> \
     <br><br>\
-    2. Knock out a smaller task. It will be one less thing weighing on your mind!\n\n\
+    <li id="toDoLink"> 2. Knock out a smaller task. It will be one less thing weighing on your mind!\n\n\ </li> \
     <br><br>\
-    3. Pick something you have always wanted to try. What would you need to do first?';
-        } else if(slot == 3) {
+    <li> 3. Pick something you have always wanted to try. What would you need to do first? </li>';
+           // Create anchor element.
+           var a = document.createElement('a'); 
+              
+           // Create the text node for anchor element.
+           var link = document.createTextNode("To Do List");
+             
+           // Append the text node to anchor element.
+           a.appendChild(link);  
+             
+           // Set the href property.
+           a.href = "https://www.squibler.io/plot-generator"; 
+             
+           // Append the anchor element to the body.
+           document.getElementById('toDoLink').append(a); 
+    } else if(slot == 3) {
             document.getElementById('results').innerHTML = '<b>Treat yo self!</b><br><br>\
            Right now, your top priority should be you. Work is important, but you cannot succeed unless you take care of yourself.\
     <br><br>\
