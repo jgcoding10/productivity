@@ -121,6 +121,13 @@ def logout():
     # Redirect user to login form
     return redirect("/login")
 
+
+@app.route("/takequiz")
+def quiz():
+
+    # Redirect user to login form
+    return render_template("quizpage.html")
+
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
 def quote():
